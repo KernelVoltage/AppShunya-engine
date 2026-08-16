@@ -60,3 +60,15 @@ AppShunya-engine/
 ├── main.js              # Primary compilation logic, file processing, canvas rendering, binary zip builder
 ├── security-seo.js      # Security headers runtime setup, input sanitization, SEO metadata controls
 └── README.md            # Comprehensive project documentation file
+```
+
+---
+
+## Network Navigation & Ecosystem
+
+This game is part of the **KernelVoltage Open-Source Ecosystem**. Explore connected repositories, tools, and web applications across our public codebase directory:
+
+* **Central Developer Profile:** [KernelVoltage GitHub Overview](https://github.com/KernelVoltage)
+* **Web Applications Directory:** [Web Projects Repository](https://github.com/KernelVoltage/web-projects)
+* **Game Projects Hub:** [Game Projects Repository](https://github.com/KernelVoltage/game-projects)
+* **Browse All Public Repositories:** [KernelVoltage Repositories Directory](https://github.com/KernelVoltage?tab=repositories)
