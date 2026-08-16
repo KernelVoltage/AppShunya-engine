@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    
+    <!-- Enterprise SEO & Meta Architecture -->
+    <title>AppShunya Engine | Professional Web-to-APK Platform & Enterprise Binary Compiler</title>
+    <meta name="title" content="AppShunya Engine | Professional Web-to-APK Platform & Enterprise Binary Compiler">
+    <meta name="description" content="Industrial-grade web asset packaging platform powered by advanced bytecode translation. Convert live URLs, HTML5 packages, or offline ZIP files into high-performance native Android APK binaries instantly.">
+    <meta name="keywords" content="appshunya engine, web to apk converter, apk builder, html to apk, android app shell, offline apk maker, progressive web app compiler, mobile application generator">
+    <meta name="author" content="Yash - AppShunya Core Engineering">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://appshunya.com/">
+
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            950: '#022c22'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Advanced Icon Framework -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Ambient Dynamic Background Gradient Orbs */
+        .ambient-hero-bg {
+            position: relative;
+        }
+        .ambient-hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: 20%;
+            width: 45vw;
+            height: 45vw;
+            max-width: 600px;
+            max-height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(59, 130, 246, 0.12) 50%, transparent 75%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: 0;
+            animation: pulseGlow 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        .ambient-hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: 0%;
+            right: 15%;
+            width: 35vw;
+            height: 35vw;
+            max-width: 500px;
+            max-height: 500px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, rgba(16, 185, 129, 0.1) 60%, transparent 80%);
+            filter: blur(90px);
+            border-radius: 50%;
+            z-index: 0;
+            animation: floatSlow 10s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.6; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .gold-sheen-wrapper {
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+        }
+        .gold-sheen-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110%;
+            height: 140%;
+            background: linear-gradient(90deg, #34d399, #fbbf24, #34d399, #34d399);
+            background-size: 300% 300%;
+            animation: gradientShift 6s ease infinite, pulseGlow 4s ease-in-out infinite;
+            filter: blur(22px);
+            opacity: 0.6;
+            border-radius: 9999px;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gold-button {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, #fde047 0%, #f59e0b 50%, #d97706 100%);
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.9), 0 10px 25px rgba(217, 119, 6, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .gold-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: inset 0 2px 8px rgba(255, 255, 255, 1), 0 15px 35px rgba(217, 119, 6, 0.45);
+        }
+
+        .glass-card-3d {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(241, 245, 249, 0.95));
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+            backdrop-filter: blur(16px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+        }
+        .glass-card-3d:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 35px 65px -20px rgba(16, 185, 129, 0.15), inset 0 1px 0 rgba(255, 255, 255, 1);
+        }
+
+        .tech-vector-box {
+            background: linear-gradient(135deg, rgba(236, 253, 245, 0.7) 0%, rgba(241, 245, 249, 0.9) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            box-shadow: inset 0 2px 8px rgba(16, 185, 129, 0.08);
+            border-radius: 2rem;
+            width: 100%;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-white/90 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Brand Logo -->
+            <a href="builder.html" class="flex items-center gap-3 group shrink-0">
+                <div class="relative bg-gradient-to-br from-emerald-400 via-teal-500 to-emerald-600 p-2.5 sm:p-3 rounded-2xl text-white shadow-lg shadow-emerald-500/30 group-hover:scale-110 transition duration-300 flex items-center justify-center">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+                        <span>AppShunya</span>
+                        <span class="text-emerald-600 text-[9px] sm:text-[10px] px-2 sm:px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-500/30 uppercase tracking-widest shadow-sm">ENGINE</span>
+                    </h1>
+                    <span class="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest hidden sm:inline-block">Professional Android Binary Compiler</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="#features" class="hover:text-emerald-600 transition">Core Features</a>
+                <a href="#workflow" class="hover:text-emerald-600 transition">Workflow Guide</a>
+                <a href="#signing-guide" class="hover:text-emerald-600 transition">APK Signing Manual</a>
+            </div>
+
+            <!-- Header Top Right GitHub Icon Only -->
+            <div class="flex items-center shrink-0">
+                <a href="https://github.com/kernelvoltage/AppShunya-engine" target="_blank" rel="noopener noreferrer" title="View GitHub Repository" class="p-2.5 sm:p-3 bg-slate-100 border border-slate-200 rounded-full text-slate-800 shadow-sm hover:bg-slate-900 hover:text-white transition duration-300 flex items-center justify-center">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.570 0-.285-.015-1.23-.015-2.205-3.33.72-4.035-1.62-4.035-1.62-.54-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.215.075 1.86 1.245 1.86 1.245 1.08 1.845 2.835 1.305 3.525.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.21.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:py-16 flex flex-col space-y-20">
+        
+        <!-- Hero Section (Seamless Unboxed Flow with Animated Gradient Backing) -->
+        <div class="ambient-hero-bg relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center py-6 lg:py-12">
+            
+            <!-- Hero Text Content -->
+            <div class="lg:col-span-7 space-y-6 text-left z-10">
+                <div class="inline-flex items-center gap-2 bg-emerald-50/90 backdrop-blur-md border border-emerald-500/30 text-emerald-700 px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-widest shadow-sm">
+                    <svg class="w-4 h-4 text-emerald-600 animate-spin shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    <span>Enterprise Web-to-APK Compiler Architecture</span>
+                </div>
+
+                <h2 class="text-4xl sm:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.1]">
+                    Transform Any Web Page Into a Native <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600">Android APK Binary</span>
+                </h2>
+                
+                <p class="text-slate-600 text-base sm:text-xl font-medium max-w-2xl leading-relaxed">
+                    Convert live URLs, HTML5 packages, or offline ZIP bundles instantly into high-performance native Android application packages equipped with advanced hardware bridge conversion, custom icons, and full permission management.
+                </p>
+
+                <!-- Golden Sheen CTA Button -->
+                <div class="pt-4">
+                    <div class="gold-sheen-wrapper w-full sm:w-auto">
+                        <a href="builder.html" class="gold-button w-full sm:w-auto inline-flex items-center justify-center gap-3 text-slate-950 font-black text-base sm:text-xl px-10 sm:px-14 py-4 sm:py-5 rounded-full text-center">
+                            <span>LAUNCH APK GENERATOR</span>
+                            <svg class="w-6 h-6 stroke-[3] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Illustration Box -->
+            <div class="lg:col-span-5 flex justify-center w-full z-10">
+                <div class="tech-vector-box w-full max-w-md p-6 sm:p-8 relative overflow-hidden animate-float">
+                    <div class="absolute -top-12 -right-12 w-48 h-48 bg-emerald-400/15 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <div class="flex flex-col items-center space-y-6">
+                        <div class="text-center space-y-1">
+                            <span class="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-500/30">Universal Format Converter</span>
+                            <h3 class="font-extrabold text-slate-900 text-base sm:text-lg mt-2">URL & HTML to APK Pipeline</h3>
+                        </div>
+
+                        <!-- Converter Visual Node Map -->
+                        <div class="grid grid-cols-3 items-center gap-2 sm:gap-3 w-full py-2">
+                            <!-- Input Node -->
+                            <div class="bg-white border border-slate-200 p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-md flex flex-col items-center text-sky-600 transform hover:scale-105 transition">
+                                <svg class="w-7 h-7 sm:w-9 sm:h-9" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                                <span class="text-[8px] sm:text-[9px] font-extrabold mt-2 text-slate-700 uppercase tracking-tight text-center">URL / HTML / ZIP</span>
+                            </div>
+
+                            <!-- Conversion Badge -->
+                            <div class="flex flex-col items-center space-y-1.5">
+                                <div class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white p-3 rounded-2xl shadow-md shadow-emerald-500/30 animate-pulse">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                                    </svg>
+                                </div>
+                                <span class="text-[8px] sm:text-[9px] font-black text-emerald-700 uppercase tracking-widest bg-emerald-50 px-2 py-0.5 rounded border border-emerald-500/25">CONVERTING</span>
+                            </div>
+
+                            <!-- Output Android APK Node -->
+                            <div class="bg-white border border-emerald-500/40 p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg flex flex-col items-center text-emerald-600 relative transform hover:scale-105 transition">
+                                <svg class="w-7 h-7 sm:w-9 sm:h-9" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 022 2z"/></svg>
+                                <span class="absolute -top-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-black text-[8px] sm:text-[9px] px-2 py-0.5 rounded-full uppercase shadow">NATIVE APK</span>
+                                <span class="text-[8px] sm:text-[9px] font-extrabold mt-2 text-slate-700 uppercase tracking-tight text-center">Android App</span>
+                            </div>
+                        </div>
+
+                        <!-- Status Indicator -->
+                        <div class="w-full bg-white border border-slate-200 p-3.5 rounded-2xl flex items-center justify-between shadow-sm gap-2 overflow-hidden">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping shrink-0"></div>
+                                <div class="text-left min-w-0">
+                                    <h4 class="text-xs font-bold text-slate-900 truncate">AppShunya Converter Engine</h4>
+                                    <span class="text-[10px] text-slate-500 font-medium truncate block">Ready to compile web code</span>
+                                </div>
+                            </div>
+                            <span class="bg-emerald-50 text-emerald-700 border border-emerald-500/30 text-[10px] sm:text-xs font-mono font-bold px-2.5 py-1 rounded-full shrink-0">ACTIVE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Technical Features -->
+        <section id="features" class="space-y-6 sm:space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3 px-2">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">Enterprise Engineering Standards</span>
+                <h3 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                    Advanced Architectural Capabilities of AppShunya Engine
+                </h3>
+                <p class="text-slate-600 text-xs sm:text-sm">
+                    Designed for modern web developers and digital agencies seeking absolute control over mobile packaging without native SDK overhead.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card-3d p-6 rounded-3xl space-y-3">
+                    <div class="bg-emerald-500 text-white w-10 h-10 rounded-2xl flex items-center justify-center shadow-md">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base sm:text-lg">Instant Bytecode Assembly</h4>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        Compiles local web archives or live endpoint structures into standard Android application frameworks with optimized rendering pipelines.
+                    </p>
+                </div>
+
+                <div class="glass-card-3d p-6 rounded-3xl space-y-3">
+                    <div class="bg-blue-500 text-white w-10 h-10 rounded-2xl flex items-center justify-center shadow-md">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base sm:text-lg">Hardware Bridge Conversion</h4>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        Seamlessly map web APIs to native device features including camera access, audio input, geolocation services, and haptic feedback.
+                    </p>
+                </div>
+
+                <div class="glass-card-3d p-6 rounded-3xl space-y-3">
+                    <div class="bg-indigo-500 text-white w-10 h-10 rounded-2xl flex items-center justify-center shadow-md">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base sm:text-lg">Smart Adaptive Icons</h4>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        Upload custom branding assets and automatically generate multi-resolution adaptive launcher icons with 3D gloss reflection overlays.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Section -->
+        <section id="workflow" class="space-y-6 sm:space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 px-2">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-600">Step-by-Step Execution Manual</span>
+                <h3 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                    How to Convert Your Website to APK
+                </h3>
+                <p class="text-slate-600 text-xs sm:text-sm">
+                    Follow these 3 straightforward phases inside the AppShunya generator to build your application package.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                
+                <!-- Step 1 -->
+                <div class="glass-card-3d p-6 sm:p-8 rounded-[2rem] flex flex-col items-center text-center group">
+                    <div class="tech-vector-box w-full py-6 sm:py-8 mb-6 flex items-center justify-center">
+                        <div class="bg-sky-500 text-white p-4 rounded-2xl shadow-lg shadow-sky-500/25 group-hover:scale-110 transition duration-300">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        </div>
+                    </div>
+                    <span class="text-xs font-black text-sky-600 uppercase tracking-widest mb-1">Phase One</span>
+                    <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2">1. Input URL or Upload Package</h4>
+                    <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+                        Provide any live URL endpoint or upload your compressed HTML5/ZIP web assets directly into the secure compilation pipeline.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-card-3d p-6 sm:p-8 rounded-[2rem] flex flex-col items-center text-center group">
+                    <div class="tech-vector-box w-full py-6 sm:py-8 mb-6 flex items-center justify-center">
+                        <div class="bg-indigo-500 text-white p-4 rounded-2xl shadow-lg shadow-indigo-500/25 group-hover:scale-110 transition duration-300">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                        </div>
+                    </div>
+                    <span class="text-xs font-black text-indigo-600 uppercase tracking-widest mb-1">Phase Two</span>
+                    <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2">2. Configure Metadata & Permissions</h4>
+                    <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+                        Customize your application title, upload custom 3D app icons, and toggle required device permissions such as camera and storage.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-card-3d p-6 sm:p-8 rounded-[2rem] flex flex-col items-center text-center group">
+                    <div class="tech-vector-box w-full py-6 sm:py-8 mb-6 flex items-center justify-center">
+                        <div class="bg-emerald-500 text-white p-4 rounded-2xl shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition duration-300">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        </div>
+                    </div>
+                    <span class="text-xs font-black text-emerald-600 uppercase tracking-widest mb-1">Phase Three</span>
+                    <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2">3. Download Unsigned APK Binary</h4>
+                    <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+                        Export your optimized Android package instantly, fully prepared for digital signing and distribution.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Comprehensive APK Signing Guide -->
+        <section id="signing-guide" class="space-y-6 sm:space-y-8 pt-6 border-t border-slate-200">
+            <div class="text-center max-w-3xl mx-auto space-y-3 px-2">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-600">Post-Compilation Masterclass</span>
+                <h3 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                    How to Sign and Install Your APK File
+                </h3>
+                <p class="text-slate-600 text-xs sm:text-sm">
+                    Because AppShunya outputs an optimized unsigned binary for security, you must sign the APK prior to device installation. Follow these 4 easy steps:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Sign Step 1 -->
+                <div class="glass-card-3d p-6 rounded-3xl flex flex-col items-start text-left relative group">
+                    <div class="absolute top-6 right-6 text-slate-200 font-black text-2xl sm:text-3xl">01</div>
+                    <div class="bg-amber-500 text-white p-3.5 rounded-2xl shadow-lg shadow-amber-500/20 mb-5">
+                        <svg class="w-6 h-6 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <span class="text-[10px] font-black uppercase text-amber-600 tracking-wider">Step A</span>
+                    <h4 class="font-bold text-slate-900 text-base mb-2 mt-1">Get an APK Signer Utility</h4>
+                    <p class="text-slate-600 text-xs font-medium leading-relaxed">
+                        Download any trusted APK signer application (such as APK Signer by Jin Developer) directly from the Google Play Store onto your device.
+                    </p>
+                </div>
+
+                <!-- Sign Step 2 -->
+                <div class="glass-card-3d p-6 rounded-3xl flex flex-col items-start text-left relative group">
+                    <div class="absolute top-6 right-6 text-slate-200 font-black text-2xl sm:text-3xl">02</div>
+                    <div class="bg-blue-500 text-white p-3.5 rounded-2xl shadow-lg shadow-blue-500/20 mb-5">
+                        <svg class="w-6 h-6 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <span class="text-[10px] font-black uppercase text-blue-600 tracking-wider">Step B</span>
+                    <h4 class="font-bold text-slate-900 text-base mb-2 mt-1">Select Unsigned APK</h4>
+                    <p class="text-slate-600 text-xs font-medium leading-relaxed">
+                        Open your signer app, tap **"Sign APK"**, and browse your phone storage to select the downloaded unsigned binary generated by AppShunya.
+                    </p>
+                </div>
+
+                <!-- Sign Step 3 -->
+                <div class="glass-card-3d p-6 rounded-3xl flex flex-col items-start text-left relative group">
+                    <div class="absolute top-6 right-6 text-slate-200 font-black text-2xl sm:text-3xl">03</div>
+                    <div class="bg-indigo-500 text-white p-3.5 rounded-2xl shadow-lg shadow-indigo-500/20 mb-5">
+                        <svg class="w-6 h-6 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                    </div>
+                    <span class="text-[10px] font-black uppercase text-indigo-600 tracking-wider">Step C</span>
+                    <h4 class="font-bold text-slate-900 text-base mb-2 mt-1">Apply Test Key & Sign</h4>
+                    <p class="text-slate-600 text-xs font-medium leading-relaxed">
+                        Choose the default test keystore (auto-sign) profile and tap the **"Sign"** button. Your secure signed APK package will be ready instantly.
+                    </p>
+                </div>
+
+                <!-- Sign Step 4 -->
+                <div class="glass-card-3d p-6 rounded-3xl flex flex-col items-start text-left relative group">
+                    <div class="absolute top-6 right-6 text-slate-200 font-black text-2xl sm:text-3xl">04</div>
+                    <div class="bg-emerald-500 text-white p-3.5 rounded-2xl shadow-lg shadow-emerald-500/20 mb-5">
+                        <svg class="w-6 h-6 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <span class="text-[10px] font-black uppercase text-emerald-600 tracking-wider">Step D</span>
+                    <h4 class="font-bold text-slate-900 text-base mb-2 mt-1">Install and Launch</h4>
+                    <p class="text-slate-600 text-xs font-medium leading-relaxed">
+                        Tap the newly signed APK file to install it directly on your Android device. Your custom web application will launch seamlessly from the homescreen!
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-white border-t border-slate-200 mt-16 py-8 px-6 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="space-y-1">
+                <div class="text-slate-900 font-black text-base sm:text-lg flex items-center justify-center md:justify-start gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span> AppShunya Engine Platform
+                </div>
+                <p class="text-slate-500 text-xs">
+                    Professional Open-Source Symbolic Binary Converter Platform. Managed on 
+                    <a href="https://github.com/kernelvoltage/AppShunya-engine" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-bold hover:underline">
+                        GitHub (kernelvoltage)
+                    </a>.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-600 font-semibold">
+                <!-- Footer GitHub Full Button -->
+                <a href="https://github.com/kernelvoltage/AppShunya-engine" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-slate-800" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.570 0-.285-.015-1.23-.015-2.205-3.33.72-4.035-1.62-4.035-1.62-.54-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.215.075 1.86 1.245 1.86 1.245 1.08 1.845 2.835 1.305 3.525.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.21.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    <span>GitHub Repository</span>
+                </a>
+                <a href="#workflow" class="hover:text-emerald-600 transition">Workflow Guide</a>
+                <a href="#signing-guide" class="hover:text-emerald-600 transition">Signing Documentation</a>
+                <span class="text-emerald-600 flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> 
+                    Secure Client-Side Build
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icon Renderer Runtime -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    
+    <!-- Enterprise SEO & Social Media Metadata (Optimized for all AIs & Search Engines) -->
+    <title>AppShunya Engine | Professional Web-to-APK Platform & Enterprise Binary Compiler</title>
+    <meta name="title" content="AppShunya Engine | Professional Web-to-APK Platform & Enterprise Binary Compiler">
+    <meta name="description" content="Industrial-grade web asset packaging platform powered by advanced bytecode translation. Convert live URLs, HTML5 packages, or offline ZIP files into high-performance native Android APK binaries instantly.">
+    <meta name="keywords" content="Web to APK, APK Compiler, HTML5 to Android, AppShunya Engine, Android Binary Compiler, PWA to APK Converter">
+    <meta name="author" content="Yash - AppShunya Core Engineering">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://appshunya.com/">
+
+    <!-- Open Graph / Facebook / LinkedIn / AI crawlers metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://appshunya.com/">
+    <meta property="og:title" content="AppShunya Engine | Professional Web-to-APK Platform">
+    <meta property="og:description" content="Convert live URLs, HTML5 packages, or ZIP archives into high-performance native Android APK binaries instantly.">
+    <meta property="og:image" content="https://appshunya.com/assets/og-banner.png">
+
+    <!-- Twitter Card metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://appshunya.com/">
+    <meta name="twitter:title" content="AppShunya Engine | Professional Web-to-APK Platform">
+    <meta name="twitter:description" content="Convert live URLs, HTML5 packages, or ZIP archives into high-performance native Android APK binaries instantly.">
+    <meta name="twitter:image" content="https://appshunya.com/assets/og-banner.png">
+    
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            950: '#022c22'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- External Style Sheet linked -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-emerald-500 selection:text-white">
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-white/90 border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <div class="relative bg-gradient-to-br from-emerald-400 via-teal-500 to-emerald-600 p-2.5 sm:p-3 rounded-2xl text-white shadow-lg shadow-emerald-500/30 group-hover:scale-110 transition duration-300 flex items-center justify-center">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+                        <span>AppShunya</span>
+                        <span class="text-emerald-600 text-[9px] sm:text-[10px] px-2 sm:px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-500/30 uppercase tracking-widest shadow-sm">ENGINE</span>
+                    </h1>
+                    <span class="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest hidden sm:inline-block">Professional Android Binary Compiler</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600 transition">Core Features</a>
+                <a href="index.html#workflow" class="hover:text-emerald-600 transition">Workflow Guide</a>
+                <a href="index.html#signing-guide" class="hover:text-emerald-600 transition">APK Signing Manual</a>
+            </div>
+
+            <!-- Top Right GitHub Control -->
+            <div class="flex items-center gap-3 shrink-0">
+                <a href="https://github.com/kernelvoltage/AppShunya-engine" target="_blank" rel="noopener noreferrer" title="View GitHub Repository" class="p-2.5 sm:p-3 bg-slate-100 border border-slate-200 rounded-full text-slate-800 shadow-sm hover:bg-slate-900 hover:text-white transition duration-300 flex items-center justify-center">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.570 0-.285-.015-1.23-.015-2.205-3.33.72-4.035-1.62-4.035-1.62-.54-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.215.075 1.86 1.245 1.86 1.245 1.08 1.845 2.835 1.305 3.525.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.21.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main Generator Container (Pure White Background Flow) -->
+    <main class="flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-8 bg-white">
+        
+        <!-- Section Title Header -->
+        <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full border border-emerald-500/20 shadow-sm">
+                <svg class="w-3.5 h-3.5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                <span>AppShunya Engine</span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">Unsigned Binary Compiler & Shiny Icon Suite</h2>
+        </div>
+
+        <div class="space-y-6">
+            
+            <!-- App Name Input -->
+            <div class="space-y-2">
+                <label class="block text-xs sm:text-sm font-extrabold text-slate-700 tracking-wide">App Name (Homescreen Title)</label>
+                <input type="text" id="appName" class="w-full p-4 rounded-2xl text-slate-900 bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition shadow-sm font-bold text-sm sm:text-base input-field" placeholder="e.g. MyAwesomeApp" maxlength="20">
+            </div>
+
+            <!-- App Icon with Drag-and-Drop -->
+            <div class="space-y-2">
+                <label class="block text-xs sm:text-sm font-extrabold text-slate-700 tracking-wide">App Icon (Adaptive Smart Scale & 3D Gloss)</label>
+                <div id="iconDropZone" onclick="openFilePicker('iconInput')" 
+                     ondragover="handleDragOver(event, 'iconDropZone')" 
+                     ondragleave="handleDragLeave(event, 'iconDropZone')" 
+                     ondrop="handleDrop(event, 'iconInput')"
+                     class="border-2 border-dashed border-slate-300 bg-slate-50/50 p-6 rounded-2xl text-center cursor-pointer hover:border-emerald-500 hover:bg-emerald-50/30 transition group shadow-sm">
+                    
+                    <div id="iconContainer" class="hidden mb-3 overflow-hidden mx-auto rounded-2xl w-20 h-20 shadow-md icon-container">
+                        <img id="iconPreview" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Shiny Icon Preview">
+                    </div>
+                    
+                    <div id="iconPlaceholder">
+                        <div class="w-10 h-10 mx-auto mb-2 text-slate-400 group-hover:text-emerald-500 transition">
+                            <svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                        <span id="iconLabel" class="text-slate-600 text-xs sm:text-sm font-medium block">Drag & drop app icon here, or <span class="text-emerald-600 font-bold">Browse</span></span>
+                    </div>
+                    <span id="iconSizeInfo" class="text-xs text-emerald-600 font-semibold block mt-1 hidden"></span>
+                </div>
+            </div>
+
+            <!-- App Permissions Manager -->
+            <div class="space-y-3">
+                <label class="block text-xs sm:text-sm font-extrabold text-slate-700 tracking-wide uppercase">App Permissions Manager</label>
+                
+                <div class="permissions-grid text-xs sm:text-sm font-semibold text-slate-700">
+                    <label class="flex items-center justify-between bg-slate-50/60 p-4 rounded-2xl border border-slate-200 cursor-pointer shadow-sm hover:border-emerald-500 hover:bg-emerald-50/20 transition group">
+                        <span class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3"/></svg>
+                            Camera
+                        </span>
+                        <div class="switch-container">
+                            <input type="checkbox" id="permCamera" class="ios-switch" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center justify-between bg-slate-50/60 p-4 rounded-2xl border border-slate-200 cursor-pointer shadow-sm hover:border-emerald-500 hover:bg-emerald-50/20 transition group">
+                        <span class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"/></svg>
+                            Microphone
+                        </span>
+                        <div class="switch-container">
+                            <input type="checkbox" id="permAudio" class="ios-switch" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center justify-between bg-slate-50/60 p-4 rounded-2xl border border-slate-200 cursor-pointer shadow-sm hover:border-emerald-500 hover:bg-emerald-50/20 transition group">
+                        <span class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Location
+                        </span>
+                        <div class="switch-container">
+                            <input type="checkbox" id="permLocation" class="ios-switch" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center justify-between bg-slate-50/60 p-4 rounded-2xl border border-slate-200 cursor-pointer shadow-sm hover:border-emerald-500 hover:bg-emerald-50/20 transition group">
+                        <span class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+                            Storage / Gallery
+                        </span>
+                        <div class="switch-container">
+                            <input type="checkbox" id="permStorage" class="ios-switch" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center justify-between bg-slate-50/60 p-4 rounded-2xl border border-slate-200 cursor-pointer span-full shadow-sm hover:border-emerald-500 hover:bg-emerald-50/20 transition group">
+                        <span class="flex items-center gap-2.5">
+                            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                            Haptic Vibration Feedback
+                        </span>
+                        <div class="switch-container">
+                            <input type="checkbox" id="permVibrate" class="ios-switch" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Mode Switcher Tabs -->
+            <div class="flex gap-2 p-1.5 bg-slate-100 rounded-2xl border border-slate-200 shadow-inner">
+                <button id="btnUrl" type="button" onclick="setMode('url')" class="flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer">Remote URL</button>
+                <button id="btnFile" type="button" onclick="setMode('file')" class="flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer">Local File</button>
+            </div>
+
+            <!-- Target URL Input -->
+            <div id="urlInput" class="hidden space-y-2">
+                <label class="block text-xs sm:text-sm font-extrabold text-slate-700 tracking-wide">Target Website Link</label>
+                <input type="url" id="targetUrl" class="w-full p-4 rounded-2xl text-slate-900 bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition shadow-sm text-sm sm:text-base font-semibold input-field" placeholder="https://yourwebsite.com">
+            </div>
+            
+            <!-- Local Asset Upload with Drag and Drop -->
+            <div id="fileInput" class="space-y-2">
+                <label class="block text-xs sm:text-sm font-extrabold text-slate-700 tracking-wide">Upload Web Package (.zip / .html)</label>
+                <div id="payloadDropZone" onclick="openFilePicker('payloadFile')" 
+                     ondragover="handleDragOver(event, 'payloadDropZone')" 
+                     ondragleave="handleDragLeave(event, 'payloadDropZone')" 
+                     ondrop="handleDrop(event, 'payloadFile')"
+                     class="w-full p-6 sm:p-8 rounded-2xl bg-slate-50/50 text-slate-700 border-2 border-dashed border-slate-300 cursor-pointer flex flex-col items-center justify-center text-center hover:border-emerald-500 hover:bg-emerald-50/30 transition group shadow-sm">
+                    <div class="w-10 h-10 mx-auto mb-2 text-slate-400 group-hover:text-emerald-500 transition">
+                        <svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+                    </div>
+                    <span id="payloadLabel" class="text-slate-600 text-xs sm:text-sm font-medium">Drag and drop package here, or <span class="text-emerald-600 font-bold">Browse</span></span>
+                </div>
+            </div>
+
+            <!-- Status Indicator -->
+            <div id="statusBox" class="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-center text-xs sm:text-sm font-bold text-emerald-600 shadow-sm">
+                ✓ Fill all mandatory fields to compile Unsigned APK binary.
+            </div>
+
+            <!-- Hidden File Inputs -->
+            <input type="file" id="iconInput" class="hidden" accept="image/*" onchange="previewIcon(event)">
+            <input type="file" id="payloadFile" class="hidden" accept=".zip,.html" onchange="loadPayloadFile(event)">
+
+            <!-- Action Button -->
+            <button id="buildBtn" onclick="processData()" class="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-extrabold py-4 sm:py-5 rounded-2xl shadow-xl shadow-emerald-500/25 active:scale-[0.99] transition cursor-pointer text-sm sm:text-base tracking-widest uppercase">
+                Generate Unsigned APK
+            </button>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="w-full bg-white border-t border-slate-200 mt-16 py-8 px-6 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="space-y-1">
+                <div class="text-slate-900 font-black text-base sm:text-lg flex items-center justify-center md:justify-start gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span> AppShunya Engine Platform
+                </div>
+                <p class="text-slate-500 text-xs">
+                    Professional Open-Source Symbolic Binary Converter Platform. Managed on 
+                    <a href="https://github.com/kernelvoltage/AppShunya-engine" target="_blank" rel="noopener noreferrer" class="github-footer-link font-bold hover:underline">
+                        GitHub (kernelvoltage)
+                    </a>.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-600 font-semibold">
+                <a href="index.html" class="hover:text-emerald-600 transition">Overview</a>
+                <a href="index.html#workflow" class="hover:text-emerald-600 transition">Workflow Guide</a>
+                <a href="index.html#signing-guide" class="hover:text-emerald-600 transition">Signing Manual</a>
+                <span class="text-emerald-600 flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> 
+                    Secure Client-Side Build
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Utilities -->
+    <script>
+        function handleDragOver(e, zoneId) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.getElementById(zoneId).classList.add('border-emerald-500', 'bg-emerald-50/40');
+        }
+
+        function handleDragLeave(e, zoneId) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.getElementById(zoneId).classList.remove('border-emerald-500', 'bg-emerald-50/40');
+        }
+
+        function handleDrop(e, inputId) {
+            e.preventDefault();
+            e.stopPropagation();
+            const zoneId = e.currentTarget.id;
+            document.getElementById(zoneId).classList.remove('border-emerald-500', 'bg-emerald-50/40');
+            
+            if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                const input = document.getElementById(inputId);
+                input.files = e.dataTransfer.files;
+                const event = new Event('change', { bubbles: true });
+                input.dispatchEvent(event);
+            }
+        }
+
+        function setMode(mode) {
+            const btnUrl = document.getElementById('btnUrl');
+            const btnFile = document.getElementById('btnFile');
+            const urlInput = document.getElementById('urlInput');
+            const fileInput = document.getElementById('fileInput');
+
+            if (mode === 'url') {
+                btnUrl.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm btn-mode-active transition cursor-pointer";
+                btnFile.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer";
+                urlInput.classList.remove('hidden');
+                fileInput.classList.add('hidden');
+            } else {
+                btnFile.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm btn-mode-active transition cursor-pointer";
+                btnUrl.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer";
+                fileInput.classList.remove('hidden');
+                urlInput.classList.add('hidden');
+            }
+        }
+
+        setMode('file');
+
+        window.triggerSigningRedirect = function() {
+            setTimeout(() => {
+                window.location.href = 'index.html#signing-guide';
+            }, 1000);
+        };
+    </script>
+    <script src="main.js"></script>
+    <script src="security-seo.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
