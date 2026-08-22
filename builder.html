@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     
-    <!-- Enterprise SEO & Social Media Metadata (Optimized for all AIs & Search Engines) -->
+    <!-- Enterprise SEO & Social Media Metadata -->
     <title>AppShunya Engine | Professional Web-to-APK Platform & Enterprise Binary Compiler</title>
     <meta name="title" content="AppShunya Engine | Professional Web-to-APK Platform & Enterprise Binary Compiler">
     <meta name="description" content="Industrial-grade web asset packaging platform powered by advanced bytecode translation. Convert live URLs, HTML5 packages, or offline ZIP files into high-performance native Android APK binaries instantly.">
@@ -95,7 +95,7 @@
         </div>
     </header>
 
-    <!-- Main Generator Container (Pure White Background Flow) -->
+    <!-- Main Generator Container -->
     <main class="flex-1 w-full max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-8 bg-white">
         
         <!-- Section Title Header -->
@@ -130,7 +130,7 @@
                     
                     <div id="iconPlaceholder">
                         <div class="w-10 h-10 mx-auto mb-2 text-slate-400 group-hover:text-emerald-500 transition">
-                            <svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            <svg class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2 2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                         </div>
                         <span id="iconLabel" class="text-slate-600 text-xs sm:text-sm font-medium block">Drag & drop app icon here, or <span class="text-emerald-600 font-bold">Browse</span></span>
                     </div>
@@ -206,10 +206,11 @@
                 <button id="btnFile" type="button" onclick="setMode('file')" class="flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer">Local File</button>
             </div>
 
-            <!-- Target URL Input -->
+            <!-- Target URL Input (Standardized IDs to match both JS conventions) -->
             <div id="urlInput" class="hidden space-y-2">
                 <label class="block text-xs sm:text-sm font-extrabold text-slate-700 tracking-wide">Target Website Link</label>
                 <input type="url" id="targetUrl" class="w-full p-4 rounded-2xl text-slate-900 bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition shadow-sm text-sm sm:text-base font-semibold input-field" placeholder="https://yourwebsite.com">
+                <input type="hidden" id="targetUrlInput">
             </div>
             
             <!-- Local Asset Upload with Drag and Drop -->
@@ -235,14 +236,33 @@
             <!-- Hidden File Inputs -->
             <input type="file" id="iconInput" class="hidden" accept="image/*" onchange="previewIcon(event)">
             <input type="file" id="payloadFile" class="hidden" accept=".zip,.html" onchange="loadPayloadFile(event)">
+            <input type="file" id="manualApkInput" class="hidden" accept=".apk">
 
             <!-- Action Button -->
             <button id="buildBtn" onclick="processData()" class="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-extrabold py-4 sm:py-5 rounded-2xl shadow-xl shadow-emerald-500/25 active:scale-[0.99] transition cursor-pointer text-sm sm:text-base tracking-widest uppercase">
                 Generate Unsigned APK
             </button>
+
+            <!-- Hidden Terminal Fallback Container for Safe Execution -->
+            <div id="consoleTerminal" class="hidden"></div>
         </div>
     </main>
     
+    <!-- Custom Pop-up Modal Container -->
+    <div id="customModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <!-- Modal Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-100 space-y-4 text-center transform transition-all flex flex-col">
+            <h3 id="modalTitle" class="hidden text-xl font-black text-slate-900"></h3>
+            <div id="modalMessage" class="text-sm font-medium text-slate-600 w-full text-left pb-2"></div>
+            <button id="modalBtn" onclick="closeCustomModal()" class="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-extrabold py-3.5 rounded-xl transition shadow-lg shadow-emerald-500/25 text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer">
+                <span>Proceed to Signing Guide</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="w-full bg-white border-t border-slate-200 mt-16 py-8 px-6 shadow-sm">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
@@ -270,31 +290,41 @@
         </div>
     </footer>
 
-    <!-- Script Utilities -->
+    <!-- Inline Script Utilities & System Bindings -->
     <script>
+        function openFilePicker(inputId) {
+            const input = document.getElementById(inputId);
+            if (input) input.click();
+        }
+
         function handleDragOver(e, zoneId) {
             e.preventDefault();
             e.stopPropagation();
-            document.getElementById(zoneId).classList.add('border-emerald-500', 'bg-emerald-50/40');
+            const zone = document.getElementById(zoneId);
+            if (zone) zone.classList.add('border-emerald-500', 'bg-emerald-50/40');
         }
 
         function handleDragLeave(e, zoneId) {
             e.preventDefault();
             e.stopPropagation();
-            document.getElementById(zoneId).classList.remove('border-emerald-500', 'bg-emerald-50/40');
+            const zone = document.getElementById(zoneId);
+            if (zone) zone.classList.remove('border-emerald-500', 'bg-emerald-50/40');
         }
 
         function handleDrop(e, inputId) {
             e.preventDefault();
             e.stopPropagation();
-            const zoneId = e.currentTarget.id;
-            document.getElementById(zoneId).classList.remove('border-emerald-500', 'bg-emerald-50/40');
+            const zoneId = e.currentTarget ? e.currentTarget.id : (inputId === 'iconInput' ? 'iconDropZone' : 'payloadDropZone');
+            const zone = document.getElementById(zoneId);
+            if (zone) zone.classList.remove('border-emerald-500', 'bg-emerald-50/40');
             
-            if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
                 const input = document.getElementById(inputId);
-                input.files = e.dataTransfer.files;
-                const event = new Event('change', { bubbles: true });
-                input.dispatchEvent(event);
+                if (input) {
+                    input.files = e.dataTransfer.files;
+                    const event = new Event('change', { bubbles: true });
+                    input.dispatchEvent(event);
+                }
             }
         }
 
@@ -305,30 +335,70 @@
             const fileInput = document.getElementById('fileInput');
 
             if (mode === 'url') {
-                btnUrl.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm btn-mode-active transition cursor-pointer";
-                btnFile.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer";
-                urlInput.classList.remove('hidden');
-                fileInput.classList.add('hidden');
+                if (btnUrl) btnUrl.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm bg-white text-emerald-600 shadow-sm border border-slate-200 transition cursor-pointer";
+                if (btnFile) btnFile.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer";
+                if (urlInput) urlInput.classList.remove('hidden');
+                if (fileInput) fileInput.classList.add('hidden');
             } else {
-                btnFile.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm btn-mode-active transition cursor-pointer";
-                btnUrl.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer";
-                fileInput.classList.remove('hidden');
-                urlInput.classList.add('hidden');
+                if (btnFile) btnFile.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm bg-white text-emerald-600 shadow-sm border border-slate-200 transition cursor-pointer";
+                if (btnUrl) btnUrl.className = "flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer";
+                if (fileInput) fileInput.classList.remove('hidden');
+                if (urlInput) urlInput.classList.add('hidden');
             }
         }
 
-        setMode('file');
+        // Sync dual target URL inputs if needed
+        document.addEventListener('DOMContentLoaded', () => {
+            setMode('file');
+            const targetUrl = document.getElementById('targetUrl');
+            const targetUrlInput = document.getElementById('targetUrlInput');
+            if (targetUrl && targetUrlInput) {
+                targetUrl.addEventListener('input', (e) => {
+                    targetUrlInput.value = e.target.value;
+                });
+            }
+        });
+
+        let modalCallback = null;
+
+        window.showCustomModal = function(title, messageHtml, callback = null) {
+            const titleEl = document.getElementById('modalTitle');
+            if (titleEl && title) {
+                titleEl.innerText = title;
+            }
+            const msgEl = document.getElementById('modalMessage');
+            if (msgEl) msgEl.innerHTML = messageHtml; 
+            
+            const modal = document.getElementById('customModal');
+            if (modal) modal.classList.remove('hidden');
+            modalCallback = callback;
+        };
+
+        window.closeCustomModal = function() {
+            const modal = document.getElementById('customModal');
+            if (modal) modal.classList.add('hidden');
+            if (modalCallback) {
+                modalCallback();
+                modalCallback = null;
+            } else {
+                window.location.href = 'index.html#signing-guide';
+            }
+        };
 
         window.triggerSigningRedirect = function() {
             setTimeout(() => {
                 window.location.href = 'index.html#signing-guide';
-            }, 1000);
+            }, 500);
         };
     </script>
+
+    <!-- Main Logic Scripts -->
     <script src="main.js"></script>
     <script src="security-seo.js"></script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
     </script>
 </body>
 </html>
