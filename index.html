@@ -1,17 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth light">
+<html lang="en" class="scroll-smooth light overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     
-    <!-- Enterprise SEO & Meta Architecture -->
-    <title>AppShunya Engine | Professional Web-to-APK Platform & Enterprise Binary Compiler</title>
-    <meta name="title" content="AppShunya Engine | Professional Web-to-APK Platform & Enterprise Binary Compiler">
-    <meta name="description" content="Industrial-grade web asset packaging platform powered by advanced bytecode translation. Convert live URLs, HTML5 packages, or offline ZIP files into high-performance native Android APK binaries instantly.">
-    <meta name="keywords" content="appshunya engine, web to apk converter, apk builder, html to apk, android app shell, offline apk maker, progressive web app compiler, mobile application generator">
-    <meta name="author" content="Yash - AppShunya Core Engineering">
+    <!-- Primary SEO Meta Architecture -->
+    <title>AppShunya Engine | 100% In-Browser Binary APK Compiler</title>
+    <meta name="title" content="AppShunya Engine | 100% In-Browser Binary APK Compiler">
+    <meta name="description" content="AppShunya Engine is a pure client-side binary compiler. Build Android APKs directly inside your browser without any external server processing. Safe, private, and instant.">
+    <meta name="keywords" content="AppShunya Engine, AppShunya Builder, Client Side APK Compiler, In Browser Binary Builder, Web to APK, html to apk, android app shell, offline apk maker">
+    <meta name="author" content="kernelvoltage - AppShunya Core Engineering">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://appshunya.com/">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://appshunya.com/">
+    <meta property="og:title" content="AppShunya Engine - 100% Client-Side APK Compiler">
+    <meta property="og:description" content="Build APKs entirely inside your browser using pure JavaScript binary manipulation. Zero server uploads. Safe, private, and instant.">
+    <meta property="og:site_name" content="AppShunya Engine">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AppShunya Engine | 100% In-Browser Binary APK Compiler">
+    <meta name="twitter:description" content="Convert Web URLs, HTML files, and ZIP packages into native Android APKs locally in your browser. Zero server data storage.">
+
+    <!-- Structured Data JSON-LD Schema (Google Knowledge Graph & AI Models) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AppShunya Engine",
+      "alternateName": "AppShunya APK Builder",
+      "url": "https://appshunya.com/",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All Browsers",
+      "description": "AppShunya Engine is a 100% client-side, in-browser binary APK compiler. Convert Web URLs, HTML files, and ZIP packages into native Android APKs locally in your browser.",
+      "author": {
+        "@type": "Person",
+        "name": "kernelvoltage"
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "kernelvoltage"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
 
     <!-- Tailwind CSS Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -40,17 +79,29 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
         
+        html, body {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
             background-color: #f8fafc;
             color: #0f172a;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* Godot Game Canvas & Web Export Safety Fix */
+        canvas, #canvas, #godot-canvas {
+            max-width: 100% !important;
+            height: auto !important;
+            touch-action: none;
         }
 
         /* Ambient Dynamic Background Gradient Orbs */
         .ambient-hero-bg {
             position: relative;
+            overflow: hidden;
         }
         .ambient-hero-bg::before {
             content: '';
@@ -59,7 +110,7 @@
             left: 20%;
             width: 45vw;
             height: 45vw;
-            max-width: 600px;
+            max-width: 100%;
             max-height: 600px;
             background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(59, 130, 246, 0.12) 50%, transparent 75%);
             filter: blur(80px);
@@ -75,7 +126,7 @@
             right: 15%;
             width: 35vw;
             height: 35vw;
-            max-width: 500px;
+            max-width: 100%;
             max-height: 500px;
             background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, rgba(16, 185, 129, 0.1) 60%, transparent 80%);
             filter: blur(90px);
@@ -109,7 +160,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 110%;
+            width: 100%;
             height: 140%;
             background: linear-gradient(90deg, #34d399, #fbbf24, #34d399, #34d399);
             background-size: 300% 300%;
@@ -167,7 +218,7 @@
         ::-webkit-scrollbar-thumb:hover { background: #10b981; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
+<body class="min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white overflow-x-hidden">
 
     <!-- Main Navigation Bar -->
     <header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-white/90 border-b border-slate-200 shadow-sm">
@@ -209,9 +260,9 @@
     </header>
 
     <!-- Main Content Grid -->
-    <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:py-16 flex flex-col space-y-20">
+    <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 lg:py-16 flex flex-col space-y-20 overflow-x-hidden">
         
-        <!-- Hero Section (Seamless Unboxed Flow with Animated Gradient Backing) -->
+        <!-- Hero Section -->
         <div class="ambient-hero-bg relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center py-6 lg:py-12">
             
             <!-- Hero Text Content -->
@@ -421,7 +472,7 @@
                     <span class="text-[10px] font-black uppercase text-amber-600 tracking-wider">Step A</span>
                     <h4 class="font-bold text-slate-900 text-base mb-2 mt-1">Get an APK Signer Utility</h4>
                     <p class="text-slate-600 text-xs font-medium leading-relaxed">
-                        Download any trusted APK signer application (such as APK Signer by Jin Developer) directly from the Google Play Store onto your device.
+                        Download any trusted APK signer application directly from the Google Play Store onto your device.
                     </p>
                 </div>
 
@@ -470,35 +521,55 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full bg-white border-t border-slate-200 mt-16 py-8 px-6 shadow-sm">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            <div class="space-y-1">
-                <div class="text-slate-900 font-black text-base sm:text-lg flex items-center justify-center md:justify-start gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span> AppShunya Engine Platform
-                </div>
-                <p class="text-slate-500 text-xs">
-                    Professional Open-Source Symbolic Binary Converter Platform. Managed on 
-                    <a href="https://github.com/kernelvoltage/AppShunya-engine" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-bold hover:underline">
-                        GitHub (kernelvoltage)
-                    </a>.
-                </p>
-            </div>
+    <footer class="w-full bg-white border-t border-slate-200 mt-16 py-10 px-6 shadow-sm overflow-x-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col space-y-8">
             
-            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-600 font-semibold">
-                <!-- Footer GitHub Full Button -->
-                <a href="https://github.com/kernelvoltage/AppShunya-engine" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition flex items-center gap-1.5">
-                    <svg class="w-4 h-4 text-slate-800" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.570 0-.285-.015-1.23-.015-2.205-3.33.72-4.035-1.62-4.035-1.62-.54-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.215.075 1.86 1.245 1.86 1.245 1.08 1.845 2.835 1.305 3.525.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.21.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                    </svg>
-                    <span>GitHub Repository</span>
-                </a>
-                <a href="#workflow" class="hover:text-emerald-600 transition">Workflow Guide</a>
-                <a href="#signing-guide" class="hover:text-emerald-600 transition">Signing Documentation</a>
-                <span class="text-emerald-600 flex items-center gap-1.5">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> 
-                    Secure Client-Side Build
-                </span>
+            <!-- Top Footer Info Block -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div class="space-y-2 max-w-2xl">
+                    <div class="text-slate-900 font-black text-lg flex items-center justify-center md:justify-start gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span> AppShunya Engine Platform
+                    </div>
+                    <!-- Brand Ownership & Technical Footprint Statement -->
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        <strong>AppShunya Engine</strong> is an independent, 100% client-side Web Tools Platform designed for in-browser binary APK compilation. All build processes run locally inside the user's browser with zero server data storage. Created and maintained by <strong>kernelvoltage</strong>.
+                    </p>
+                </div>
+
+                <!-- Trust Badge -->
+                <div class="shrink-0 bg-emerald-50/80 border border-emerald-500/30 rounded-2xl p-4 flex items-center gap-3 shadow-sm">
+                    <div class="bg-emerald-500 text-white p-2 rounded-xl">
+                        <svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <div class="text-left">
+                        <span class="text-[10px] font-black uppercase text-emerald-700 block tracking-wider">Privacy Guaranteed</span>
+                        <span class="text-xs font-bold text-slate-900">100% Client-Side & Zero Server Log</span>
+                    </div>
+                </div>
             </div>
+
+            <hr class="border-slate-200">
+
+            <!-- Bottom Navigation & GitHub Link -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 font-semibold text-center sm:text-left">
+                <p class="text-slate-500">
+                    Managed on <a href="https://github.com/kernelvoltage/AppShunya-engine" target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-bold hover:underline">GitHub (kernelvoltage)</a>.
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+                    <a href="https://github.com/kernelvoltage/AppShunya-engine" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-slate-800" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.570 0-.285-.015-1.23-.015-2.205-3.33.72-4.035-1.62-4.035-1.62-.54-1.38-1.335-1.755-1.335-1.755-1.095-.75.075-.735.075-.735 1.215.075 1.86 1.245 1.86 1.245 1.08 1.845 2.835 1.305 3.525.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.21.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                        <span>GitHub Repository</span>
+                    </a>
+                    <a href="#workflow" class="hover:text-emerald-600 transition">Workflow Guide</a>
+                    <a href="#signing-guide" class="hover:text-emerald-600 transition">Signing Documentation</a>
+                    <a href="terms.html" class="hover:text-emerald-600 transition">Terms of Service</a>
+                    <a href="privacy.html" class="hover:text-emerald-600 transition">Privacy Policy</a>
+                </div>
+            </div>
+
         </div>
     </footer>
 
