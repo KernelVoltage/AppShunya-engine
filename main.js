@@ -86,8 +86,8 @@ function setMode(selectedMode) {
     const btnUrl = document.getElementById('btnUrl');
     const btnFile = document.getElementById('btnFile');
 
-    const activeClass = 'flex-1 py-3 rounded-xl font-bold btn-mode-active transition shadow-sm';
-    const inactiveClass = 'flex-1 py-3 rounded-xl font-bold text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-800 transition';
+    const activeClass = 'flex-1 py-3 rounded-xl font-bold bg-white text-emerald-600 shadow-sm border border-slate-200 transition cursor-pointer';
+    const inactiveClass = 'flex-1 py-3 rounded-xl font-bold text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer';
 
     if (btnUrl) btnUrl.className = isUrl ? activeClass : inactiveClass;
     if (btnFile) btnFile.className = !isUrl ? activeClass : inactiveClass;
@@ -156,11 +156,11 @@ async function renderShinyIcon(imageBuffer) {
 }
 
 async function previewIcon(e) {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const file = e.target?.files?.[0] || e;
+    if (!file || !(file instanceof Blob)) return;
 
     const origSizeKB = (file.size / 1024).toFixed(1);
-    console.log(`Processing image: ${file.name} (${origSizeKB} KB)`);
+    console.log(`Processing image: ${file.name || 'icon'} (${origSizeKB} KB)`);
     
     const reader = new FileReader();
     reader.onload = async (event) => {
@@ -194,15 +194,15 @@ async function previewIcon(e) {
 }
 
 function loadPayloadFile(e) {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const file = e.target?.files?.[0] || e;
+    if (!file || !(file instanceof Blob)) return;
 
-    cachedPayloadName = file.name;
+    cachedPayloadName = file.name || "payload.zip";
     cachedPayloadText = "";
     cachedPayloadBuffer = null;
 
-    const lowerName = file.name.toLowerCase();
-    console.log(`Loaded payload package: ${file.name}`);
+    const lowerName = cachedPayloadName.toLowerCase();
+    console.log(`Loaded payload package: ${cachedPayloadName}`);
     
     const payloadPlaceholder = document.getElementById('payloadPlaceholder');
     const payloadLoadedContainer = document.getElementById('payloadLoadedContainer');
@@ -211,8 +211,8 @@ function loadPayloadFile(e) {
 
     if (payloadPlaceholder) payloadPlaceholder.classList.add('hidden');
     if (payloadLoadedContainer) payloadLoadedContainer.classList.remove('hidden');
-    if (payloadFileNameDisplay) payloadFileNameDisplay.innerText = file.name;
-    if (payloadLabel) payloadLabel.innerText = file.name;
+    if (payloadFileNameDisplay) payloadFileNameDisplay.innerText = cachedPayloadName;
+    if (payloadLabel) payloadLabel.innerText = cachedPayloadName;
 
     const reader = new FileReader();
     if (lowerName.endsWith('.html')) {
@@ -229,13 +229,13 @@ function updateStatus(text, type = "blue") {
     if (!statusBox) return;
     
     const colorMap = {
-        blue: "bg-blue-50 dark:bg-blue-950/40 border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 animate-pulse",
-        emerald: "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400",
-        amber: "bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-400",
-        rose: "bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800 text-rose-600 dark:text-rose-400"
+        blue: "bg-blue-50 border-blue-200 text-blue-600 animate-pulse",
+        emerald: "bg-emerald-50 border-emerald-200 text-emerald-600",
+        amber: "bg-amber-50 border-amber-200 text-amber-700",
+        rose: "bg-rose-50 border-rose-200 text-rose-600"
     };
     
-    statusBox.className = `p-3.5 border rounded-xl text-center text-sm font-medium ${colorMap[type] || colorMap.blue} shadow-sm`;
+    statusBox.className = `p-4 border rounded-2xl text-center text-xs sm:text-sm font-bold shadow-sm ${colorMap[type] || colorMap.blue}`;
     statusBox.innerText = text;
 }
 
@@ -283,8 +283,90 @@ function replaceBinaryString(buffer, oldStr, newStr) {
     return u8.buffer;
 }
 
+// Modal View Component
+window.showBuildSuccessModal = function() {
+    const rawAppName = document.getElementById('appName')?.value.trim() || "AppShell";
+    const iconPreviewSrc = document.getElementById('iconPreview')?.src || currentPreviewObjectUrl || '';
+    
+    const activePerms = [];
+    if (document.getElementById('permCamera')?.checked) activePerms.push("Camera");
+    if (document.getElementById('permAudio')?.checked) activePerms.push("Microphone");
+    if (document.getElementById('permLocation')?.checked) activePerms.push("Location");
+    if (document.getElementById('permStorage')?.checked) activePerms.push("Storage");
+    if (document.getElementById('permVibrate')?.checked) activePerms.push("Haptic Vibration");
+
+    let inputSourceType = "";
+    let inputSourceName = "";
+
+    if (mode === 'url') {
+        inputSourceType = "Remote URL";
+        inputSourceName = document.getElementById('targetUrl')?.value.trim() || document.getElementById('targetUrlInput')?.value.trim() || "N/A";
+    } else {
+        const lowerName = cachedPayloadName.toLowerCase();
+        if (lowerName.endsWith('.zip')) {
+            inputSourceType = "ZIP Package";
+        } else if (lowerName.endsWith('.html')) {
+            inputSourceType = "HTML File";
+        } else {
+            inputSourceType = "Uploaded Web Package";
+        }
+        inputSourceName = cachedPayloadName || "Uploaded Package File";
+    }
+
+    const modalContent = `
+        <div class="space-y-4 text-left">
+            <div class="p-3 bg-amber-50 border border-amber-300 rounded-xl flex items-start gap-2 text-amber-900 text-xs font-bold">
+                <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+                <span>⚠️ Warning: Binary Signing karna zaroori hai! Unsigned APK direct install nahi hoga.</span>
+            </div>
+
+            <div class="flex items-center gap-3.5 p-3 bg-slate-50 rounded-2xl border border-slate-200">
+                ${iconPreviewSrc ? `<img src="${iconPreviewSrc}" class="w-14 h-14 rounded-2xl object-cover shadow-md border border-slate-200 shrink-0" alt="App Icon">` : `<div class="w-14 h-14 bg-emerald-500 rounded-2xl flex items-center justify-center text-white font-black text-xl shrink-0">APK</div>`}
+                <div class="overflow-hidden">
+                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-emerald-600 block">App Title</span>
+                    <h4 class="text-lg font-black text-slate-900 truncate">${rawAppName}</h4>
+                </div>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-1.5">
+                <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-500 block">Enabled Permissions</span>
+                <div class="flex flex-wrap gap-1.5">
+                    ${activePerms.length > 0 ? activePerms.map(p => `<span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-lg text-xs font-bold">${p}</span>`).join('') : `<span class="text-xs text-slate-400 italic">No permissions selected</span>`}
+                </div>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
+                <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-500 block">Payload Type (${inputSourceType})</span>
+                <p class="text-xs font-bold text-slate-800 break-all bg-white p-2 rounded-xl border border-slate-200">${inputSourceName}</p>
+            </div>
+        </div>
+    `;
+
+    const modalMsg = document.getElementById('modalMessage');
+    if (modalMsg) modalMsg.innerHTML = modalContent;
+
+    const modal = document.getElementById('customModal');
+    if (modal) modal.classList.remove('hidden');
+};
+
+// Fixed Navigation to index.html#signing-guide
+window.closeCustomModal = function() {
+    const modal = document.getElementById('customModal');
+    if (modal) modal.classList.add('hidden');
+
+    const targetSection = document.getElementById('signing-guide');
+
+    if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        window.location.href = 'index.html#signing-guide';
+    }
+};
+
 async function processData() {
-    const targetUrlInput = document.getElementById('targetUrl');
+    const targetUrlInput = document.getElementById('targetUrl') || document.getElementById('targetUrlInput');
     
     if (mode === 'file' && !cachedPayloadText && !cachedPayloadBuffer) {
         alert("Please select a local .HTML or .ZIP file first!");
@@ -308,7 +390,7 @@ async function processData() {
 async function executeBuildProcess() {
     try {
         const appNameEl = document.getElementById('appName');
-        const targetUrlEl = document.getElementById('targetUrl');
+        const targetUrlEl = document.getElementById('targetUrl') || document.getElementById('targetUrlInput');
         
         const rawAppName = (appNameEl && appNameEl.value.trim()) ? appNameEl.value.trim() : "AppShell";
         const sanitizedFileName = rawAppName.replace(/[^a-zA-Z0-9_\-]/g, '_');
@@ -532,10 +614,7 @@ async function executeBuildProcess() {
         console.log(`APK compiled strictly under name: ${rawAppName}`);
 
         if (finalBlob && finalBlob.size > 0) {
-            console.log("Download verified successfully. Redirecting to manual guide...");
-            setTimeout(() => {
-                window.location.href = 'index.html#signing-guide';
-            }, 300);
+            window.showBuildSuccessModal();
         } else {
             throw new Error("Download verification failed: Blob is empty.");
         }
