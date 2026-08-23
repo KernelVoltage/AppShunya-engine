@@ -63,9 +63,9 @@ We challenge senior system architects, cryptographic engineers, and low-level de
 +-----------------------------------------------------------------------------------+
 ```
 
-# AppShunya Engine — Step-by-Step UI Execution & Compilation Guide
+# AppShunya Engine — Complete Step-by-Step UI Execution & On-Device Signing Manual
 
-AppShunya Engine operates completely within the client-side browser engine using a zero-server architecture. Every step of the asset packaging and compilation workflow runs locally in browser memory.
+AppShunya Engine operates entirely within the client-side browser engine using a zero-server architecture. Every step of the asset packaging, compilation, post-processing, signing, and installation runs locally in browser memory and on your device.
 
 ---
 
@@ -108,3 +108,39 @@ AppShunya Engine operates completely within the client-side browser engine using
 ### 7. Unsigned Binary Compilation & Download
 * **User Action:** Click the bright green **GENERATE UNSIGNED APK** button.
 * **Engine Logic:** The engine compresses the manifest files, rasterized icons, web assets, and binary structures into an unsigned `.apk` Blob in browser RAM, triggering an instant file download via `window.URL.createObjectURL`.
+
+---
+
+### 8. Post-Compilation: On-Device APK Signing & Installation Manual
+
+Since Android OS requires all executable binaries to carry a valid cryptographic signature before installation, follow these detailed steps to sign and install your generated APK directly on your phone:
+
+#### Step 8.1: Download a Trusted APK Signing Tool
+1. Open the **Google Play Store**, **F-Droid**, or your browser on your Android phone.
+2. Search for a trusted APK signing utility such as **APK Signer** (by myneomediadev) or **ZipSigner**.
+3. Download and install the signing application onto your smartphone.
+
+#### Step 8.2: Locate Your Downloaded Unsigned APK
+1. Open your Android device's native **File Manager** app (e.g., *Files by Google*, *Samsung My Files*, or *Solid Explorer*).
+2. Go to **Internal Storage** -> **Download** folder (or the destination folder where your browser saves downloads).
+3. Confirm that your unsigned package file (e.g., `myawesomeapp-unsigned.apk`) is present in the folder.
+
+#### Step 8.3: Sign the Unsigned APK Binary
+1. Open the **APK Signer** application you installed in Step 8.1.
+2. Tap the **Sign a File** (or **Select In/Out**) option on the app dashboard.
+3. Browse your storage and select your downloaded `myawesomeapp-unsigned.apk` file.
+4. Select the Key Profile:
+   * Choose **Testkey** (or **Auto-Testkey**) for quick local deployment.
+   * *Optional:* Import your personal `.jks` or `.keystore` file if publishing to third-party stores.
+5. Tap **Sign the File** (or **Save**).
+6. The app will process the binary, inject the signature block, and generate a new signed APK file named `myawesomeapp-signed.apk` in the same directory.
+
+#### Step 8.4: Install and Launch Your Signed Android App
+1. Return to your device **File Manager** and navigate to your **Download** directory.
+2. Tap on the newly generated **`myawesomeapp-signed.apk`** file.
+3. If prompted with *“For your security, your phone is not allowed to install unknown apps from this source”*:
+   * Tap **Settings** on the prompt dialog.
+   * Toggle **Allow from this source** to **ON**.
+   * Press the **Back** button to return to the installer.
+4. Tap **Install** at the bottom right corner.
+5. Once installation finishes (`App installed`), tap **Open** or find your newly packaged web app icon on your home screen launcher!
