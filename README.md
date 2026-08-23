@@ -144,3 +144,14 @@ Since Android OS requires all executable binaries to carry a valid cryptographic
    * Press the **Back** button to return to the installer.
 4. Tap **Install** at the bottom right corner.
 5. Once installation finishes (`App installed`), tap **Open** or find your newly packaged web app icon on your home screen launcher!
+
+---
+
+## Network Navigation & Ecosystem
+
+This game is part of the **KernelVoltage Open-Source Ecosystem**. Explore connected repositories, tools, and web applications across our public codebase directory:
+
+* **Central Developer Profile:** [KernelVoltage GitHub Overview](https://github.com/KernelVoltage)
+* **Web Applications Directory:** [Web Projects Repository](https://github.com/KernelVoltage/web-projects)
+* **Game Projects Hub:** [Game Projects Repository](https://github.com/KernelVoltage/game-projects)
+* **Browse All Public Repositories:** [KernelVoltage Repositories Directory](https://github.com/KernelVoltage?tab=repositories)
