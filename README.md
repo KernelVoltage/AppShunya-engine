@@ -61,6 +61,7 @@ We challenge senior system architects, cryptographic engineers, and low-level de
 |      and writer to dynamically mutate package IDs (e.g., com.user.app) inside     |
 |      JSZip before sealing the binary blob.                                        |
 +-----------------------------------------------------------------------------------+
+```
 
 # AppShunya Engine — Step-by-Step UI Execution & Compilation Guide
 
