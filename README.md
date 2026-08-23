@@ -3,56 +3,61 @@
 [![Live Web App](https://img.shields.io/badge/Live_App-app--shunya--engine.vercel.app-blue?style=for-the-badge&logo=vercel)](https://app-shunya-engine.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-> **"Bypassing heavy IDEs. Eliminating hardware barriers. Compiling native Android binaries purely inside the client-side browser sandbox."**
+> **"Eradicating hardware inequality. Bypassing heavy IDEs. Compiling standalone native Android binaries purely within the client-side web browser sandbox."**
 
 ---
 
 ## Table of Contents
-1. The Manifesto: Tears Behind the IDE & The Origin
-2. The Open-Source Challenge: High-Level Architecture Puzzles
-3. Complete Interface & Builder Workflow Guide
-4. Hardware Bridge Framework & Native Permissions Matrix
-5. Adaptive 3D Gloss Icon Engine & Canvas Pipeline
-6. Step-by-Step APK Signing Manual (Mobile & Desktop Workflows)
-7. Security Architecture, Client-Side Integrity & Memory Hygiene
-8. Diagnostic Matrix & Advanced Troubleshooting
-9. License & Open Source Governance
-10. Network Navigation & Ecosystem
+1. The Manifesto: Tears Behind the IDE
+2. The Open-Source Challenge: High-Level Technical Roadblocks
+3. System Architecture & File Specification Map
+4. Exhaustive Interface Breakdown & Builder Workflow
+5. Hardware Bridge Framework & Dynamic Permissions Matrix
+6. Client-Side Graphics Pipeline: 3D Gloss Icon Engine
+7. Binary Assembly Pipeline & Memory Management Architecture
+8. Definitive APK Signing Manual (Mobile & Workstation Workflows)
+9. Security Hardening, XSS Prevention & Zero-Server Integrity
+10. Enterprise Troubleshooting & Diagnostic Matrix
+11. License & Open-Source Governance
+12. Network Navigation & Ecosystem
 
 ---
 
-## 1. The Manifesto: Tears Behind the IDE & The Origin
+## 1. The Manifesto: Tears Behind the IDE
 
-Across the developing world, millions of brilliant young minds learn HTML, CSS, and JavaScript on low-cost Android smartphones or second-hand laptops with 4GB of RAM and weak processors. Their creative potential is limitless, but their hardware is a prison.
+Across the developing world, millions of brilliant engineering minds learn software development on low-cost Android smartphones, shared cyber-café terminals, or second-hand laptops equipped with 4GB of RAM and aging Dual-Core CPUs. Their logical capability, creative vision, and problem-solving skills are boundless, but their physical hardware is a prison.
 
-When these aspiring developers attempt to enter native Android development, they encounter a massive hardware barrier:
-* **The Gradle Build Trap:** Heavy Integrated Development Environments (IDEs) like Android Studio require 16GB+ RAM, fast multi-core CPUs, and 50GB+ of storage. On budget laptops, Gradle build daemons freeze the operating system, overheat the hardware, and crash at 99% progress after 45 minutes of waiting.
-* **The Financial Wall:** A workstation capable of running standard native development tools smoothly costs between $1,000 and $2,000—an impossible sum for a struggling student or independent builder.
-* **The Silent Erasure:** Countless world-class talents abandon software engineering not because they lack skill or logic, but because their hardware physically cannot compile a basic Android app.
+When these developers attempt to bridge the gap into native Android engineering, they hit a corporate hardware wall:
 
-**AppShunya Engine** (*Shunya = Zero Disadvantage*) was created out of deep engineering empathy and open-source rebellion. We rejected the belief that compiling a binary requires heavy desktop IDEs, local JDK installations, or cloud build servers that collect user data.
+* **The Gradle Build Trap:** Official native compilation pipelines mandate heavy Integrated Development Environments (IDEs) like Android Studio, demanding 16GB+ RAM, 50GB+ SSD storage, and multi-threaded desktop CPUs. On a budget laptop, triggering a Gradle build daemon causes thermal throttling, memory swap freezes, and fatal system crashes after waiting 45 minutes at `Gradle Build Running: 99%...`
+* **The $1,000 Barrier:** A workstation capable of compiling native Android binaries smoothly costs between $1,000 and $2,000—a sum equivalent to several months or years of income for a family in an emerging economy.
+* **The Silent Erasure:** Untold thousands of world-class talents abandon software engineering entirely, not because they failed to understand code, but because their hardware physically overheated and died under the weight of bloated compilation tools.
 
-AppShunya Engine moves the entire pre-processing, asset bundling, permission injection, adaptive icon styling, and ZIP binary structure assembly **100% into the modern web browser sandbox**. It turns any device—even a $50 smartphone—into a fully functional, zero-cost Android packaging tool.
+**AppShunya Engine** (*Shunya* = Zero Disadvantage) was born out of raw engineering empathy and open-source rebellion. We rejected the corporate dogma that binary packaging requires local Java Development Kits (JDKs), Gradle daemons, or cloud servers that track user data.
+
+AppShunya Engine executes asset pre-processing, package bundling, hardware permission mapping, adaptive icon rasterization, and ZIP binary structure assembly **100% inside the client-side web browser engine**. It transforms any modern web browser—even one running on a $50 mobile phone—into a zero-cost, privacy-focused Android compilation studio.
 
 ---
 
-## 2. The Open-Source Challenge: High-Level Architecture Puzzles
+## 2. The Open-Source Challenge: High-Level Technical Roadblocks
 
-While AppShunya Engine successfully packages web assets into clean `.apk` structures on the client side, we face two major technical challenges. We invite senior system architects, cryptographic engineers, and low-level developers to help us solve these browser-based puzzles:
+While AppShunya Engine successfully packages web assets, single-page applications (SPAs), and remote URLs into clean `.apk` structures on the client side, we have hit two major low-level technical walls. 
+
+We challenge senior system architects, cryptographic engineers, and low-level developers worldwide to help us crack these client-side puzzles:
 
 ```text
 +-----------------------------------------------------------------------------------+
-|                        THE OPEN-SOURCE ENGINEERING CHALLENGES                     |
+|                        THE OPEN-SOURCE ENGINEERING PUZZLES                        |
 +-----------------------------------------------------------------------------------+
-| 1. Pure Client-Side V2/V3 APK Signing & Zipalign                                  |
-|    - Current State: Generates unsigned binaries using client-side JSZip.           |
-|    - Target: Build a pure JavaScript or WebAssembly (WASM) engine that injects    |
-|      Android V2/V3 cryptographic signature blocks into the ZIP Central Directory |
-|      and performs 4-byte zipalign directly in browser memory without a backend.   |
+| 1. Pure Browser-Based V2/V3 APK Signing & Zipalign                               |
+|    - Current State: Generates unsigned or V1-aligned APK structures via JSZip.    |
+|    - Target: Build a pure JavaScript or WebAssembly (WASM) crypto module to       |
+|      inject Android V2 (APK Signature Scheme v2) and V3 signature blocks directly |
+|      into the ZIP Central Directory and perform 4-byte zipalign in-browser.       |
 |                                                                                   |
-| 2. Dynamic Package Name Replacement via Shell / Binary XML Parsing               |
-|    - Current State: Package identifiers use fixed template manifests.             |
-|    - Target: Build a client-side Android Binary XML (AXML) parser/writer to       |
-|      dynamically mutate package IDs (e.g., com.developer.app) inside JSZip via    |
-|      browser-based build logic before sealing the ZIP buffer.                     |
+| 2. Dynamic Package Name Replacement via Binary XML Parsing                        |
+|    - Current State: Package identifiers are tied to fixed binary templates.       |
+|    - Target: Develop a client-side Android Binary XML (AXML) string-pool parser   |
+|      and writer to dynamically mutate package IDs (e.g., com.user.app) inside     |
+|      JSZip before sealing the binary blob.                                        |
 +-----------------------------------------------------------------------------------+
