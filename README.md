@@ -2,6 +2,7 @@
 
 [![Live Web App](https://img.shields.io/badge/Live_App-app--shunya--engine.vercel.app-blue?style=for-the-badge&logo=vercel)](https://app-shunya-engine.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Platform](https://img.shields.io/badge/Platform-WebBrowser-orange?style=for-the-badge)]()
 
 > **"Eradicating hardware inequality. Bypassing heavy IDEs. Compiling standalone native Android binaries purely within the client-side web browser sandbox."**
 
