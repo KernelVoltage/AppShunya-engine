@@ -4,29 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     
-    <!-- Enterprise SEO & Social Media Metadata -->
-    <title>AppShunya Engine | Professional Web-to-APK Platform & Enterprise Binary Compiler</title>
-    <meta name="title" content="AppShunya Engine | Professional Web-to-APK Platform & Enterprise Binary Compiler">
-    <meta name="description" content="Industrial-grade web asset packaging platform powered by advanced bytecode translation. Convert live URLs, HTML5 packages, or offline ZIP files into high-performance native Android APK binaries instantly.">
-    <meta name="keywords" content="Web to APK, APK Compiler, HTML5 to Android, AppShunya Engine, Android Binary Compiler, PWA to APK Converter">
+    <!-- Enterprise SEO & Social Media Metadata (Optimized strictly for AppShunya Engine) -->
+    <title>AppShunya Engine | Enterprise Web-to-APK Platform & Standalone Binary Compiler</title>
+    <meta name="title" content="AppShunya Engine | Enterprise Web-to-APK Platform & Standalone Binary Compiler">
+    <meta name="description" content="Industrial-grade AppShunya Engine for Web-to-APK compilation. Package live URLs, HTML5 assets, and web apps into high-performance native Android binaries instantly.">
+    <meta name="keywords" content="AppShunya Engine, Web to APK Engine, Enterprise Binary Compiler, Android Package Compiler, HTML5 to Android Engine, PWA Compiler">
     <meta name="author" content="Yash - AppShunya Core Engineering">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://appshunya.com/">
 
-    <!-- Open Graph / Facebook / LinkedIn / AI crawlers metadata -->
+    <!-- Open Graph / Facebook / LinkedIn / AI Crawlers Metadata -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://appshunya.com/">
-    <meta property="og:title" content="AppShunya Engine | Professional Web-to-APK Platform">
-    <meta property="og:description" content="Convert live URLs, HTML5 packages, or ZIP archives into high-performance native Android APK binaries instantly.">
+    <meta property="og:title" content="AppShunya Engine | Enterprise Web-to-APK Binary Compiler">
+    <meta property="og:description" content="Convert live URLs, HTML5 packages, or ZIP archives into high-performance native Android APK binaries with AppShunya Engine.">
     <meta property="og:image" content="https://appshunya.com/assets/og-banner.png">
 
-    <!-- Twitter Card metadata -->
+    <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://appshunya.com/">
-    <meta name="twitter:title" content="AppShunya Engine | Professional Web-to-APK Platform">
-    <meta name="twitter:description" content="Convert live URLs, HTML5 packages, or ZIP archives into high-performance native Android APK binaries instantly.">
+    <meta name="twitter:title" content="AppShunya Engine | Enterprise Web-to-APK Binary Compiler">
+    <meta name="twitter:description" content="Convert live URLs, HTML5 packages, or ZIP archives into high-performance native Android APK binaries with AppShunya Engine.">
     <meta name="twitter:image" content="https://appshunya.com/assets/og-banner.png">
     
+    <!-- JSON-LD Structured Data for High-Grade Engine SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AppShunya Engine",
+      "operatingSystem": "Android",
+      "applicationCategory": "DeveloperApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "AppShunya Engine is an enterprise-grade Web-to-APK binary compiler and bytecode translation platform for Android native packaging."
+    }
+    </script>
+
     <!-- Tailwind CSS Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -51,7 +68,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- External Style Sheet linked -->
+    <!-- External Style Sheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-emerald-500 selection:text-white">
@@ -72,13 +89,13 @@
                         <span>AppShunya</span>
                         <span class="text-emerald-600 text-[9px] sm:text-[10px] px-2 sm:px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-500/30 uppercase tracking-widest shadow-sm">ENGINE</span>
                     </h1>
-                    <span class="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest hidden sm:inline-block">Professional Android Binary Compiler</span>
+                    <span class="text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest hidden sm:inline-block">Enterprise Android Binary Compiler Engine</span>
                 </div>
             </a>
 
             <!-- Navigation Links -->
             <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600">
-                <a href="index.html" class="hover:text-emerald-600 transition">Core Features</a>
+                <a href="index.html" class="hover:text-emerald-600 transition">Core Engine Features</a>
                 <a href="index.html#workflow" class="hover:text-emerald-600 transition">Workflow Guide</a>
                 <a href="index.html#signing-guide" class="hover:text-emerald-600 transition">APK Signing Manual</a>
             </div>
@@ -206,7 +223,7 @@
                 <button id="btnFile" type="button" onclick="setMode('file')" class="flex-1 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:text-emerald-600 hover:bg-white/80 transition cursor-pointer">Local File</button>
             </div>
 
-            <!-- Target URL Input (Standardized IDs to match both JS conventions) -->
+            <!-- Target URL Input -->
             <div id="urlInput" class="hidden space-y-2">
                 <label class="block text-xs sm:text-sm font-extrabold text-slate-700 tracking-wide">Target Website Link</label>
                 <input type="url" id="targetUrl" class="w-full p-4 rounded-2xl text-slate-900 bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition shadow-sm text-sm sm:text-base font-semibold input-field" placeholder="https://yourwebsite.com">
@@ -230,7 +247,7 @@
 
             <!-- Status Indicator -->
             <div id="statusBox" class="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-center text-xs sm:text-sm font-bold text-emerald-600 shadow-sm">
-                ✓ Fill all mandatory fields to compile Unsigned APK binary.
+                ✓ Fill all mandatory fields to compile Unsigned APK binary via AppShunya Engine.
             </div>
 
             <!-- Hidden File Inputs -->
@@ -238,8 +255,8 @@
             <input type="file" id="payloadFile" class="hidden" accept=".zip,.html" onchange="loadPayloadFile(event)">
             <input type="file" id="manualApkInput" class="hidden" accept=".apk">
 
-            <!-- Action Button -->
-            <button id="buildBtn" onclick="processData()" class="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-extrabold py-4 sm:py-5 rounded-2xl shadow-xl shadow-emerald-500/25 active:scale-[0.99] transition cursor-pointer text-sm sm:text-base tracking-widest uppercase">
+            <!-- Action Button (Triggers 3-Sec Ad Overlay before Compilation) -->
+            <button id="buildBtn" onclick="triggerAdBeforeBuild()" class="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-extrabold py-4 sm:py-5 rounded-2xl shadow-xl shadow-emerald-500/25 active:scale-[0.99] transition cursor-pointer text-sm sm:text-base tracking-widest uppercase">
                 Generate Unsigned APK
             </button>
 
@@ -248,6 +265,47 @@
         </div>
     </main>
     
+    <!-- Download / Compilation Ad Overlay Modal (3-Sec Delay) -->
+    <div id="adDownloadModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-[100] flex items-center justify-center hidden p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-100 space-y-4 text-center relative">
+            <div class="space-y-1">
+                <span class="text-[10px] font-black text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full border border-emerald-500/20">AppShunya Engine Ad</span>
+                <h3 class="text-lg sm:text-xl font-black text-slate-900 mt-2">Preparing APK Binary...</h3>
+                <p class="text-xs text-slate-500">Your AppShunya Engine APK build is initializing.</p>
+            </div>
+
+            <!-- Adsterra Banner Ad Container -->
+            <div class="min-h-[250px] w-full bg-slate-50 border border-dashed border-slate-300 rounded-2xl flex items-center justify-center overflow-hidden p-2">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : 'dc866146cacb9210bf7d397f4aa65095',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/dc866146cacb9210bf7d397f4aa65095/invoke.js"></script>
+            </div>
+
+            <!-- Timer Indicator & Hidden Close/Continue Button -->
+            <div class="pt-2">
+                <div id="adTimerText" class="text-xs sm:text-sm font-bold text-slate-600 flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4 animate-spin text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    <span>Please wait <span id="adCountdown" class="text-emerald-600 font-black text-base">3</span>s...</span>
+                </div>
+
+                <!-- Close / Continue Button (Reveals ONLY after 3 seconds) -->
+                <button id="adCloseBtn" onclick="finishAdAndBuild()" class="hidden w-full mt-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-black py-3.5 rounded-xl transition shadow-lg shadow-emerald-500/25 text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer">
+                    <span>Continue & Build APK</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Custom Pop-up Modal Container -->
     <div id="customModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <!-- Modal Card -->
@@ -271,7 +329,7 @@
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span> AppShunya Engine Platform
                 </div>
                 <p class="text-slate-500 text-xs">
-                    Professional Open-Source Symbolic Binary Converter Platform. Managed on 
+                    Professional Open-Source Standalone Binary Engine. Managed on 
                     <a href="https://github.com/kernelvoltage/AppShunya-engine" target="_blank" rel="noopener noreferrer" class="github-footer-link font-bold hover:underline">
                         GitHub (kernelvoltage)
                     </a>.
@@ -284,13 +342,13 @@
                 <a href="index.html#signing-guide" class="hover:text-emerald-600 transition">Signing Manual</a>
                 <span class="text-emerald-600 flex items-center gap-1.5">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> 
-                    Secure Client-Side Build
+                    Secure Client-Side Engine
                 </span>
             </div>
         </div>
     </footer>
 
-    <!-- Inline Script Utilities & System Bindings -->
+    <!-- Inline Script Utilities & Ad Handlers -->
     <script>
         function openFilePicker(inputId) {
             const input = document.getElementById(inputId);
@@ -347,7 +405,7 @@
             }
         }
 
-        // Sync dual target URL inputs if needed
+        // Sync dual target URL inputs
         document.addEventListener('DOMContentLoaded', () => {
             setMode('file');
             const targetUrl = document.getElementById('targetUrl');
@@ -358,6 +416,49 @@
                 });
             }
         });
+
+        let adTimerInterval = null;
+
+        // Triggers ad modal with strict 3-second countdown before APK compilation
+        function triggerAdBeforeBuild() {
+            const modal = document.getElementById('adDownloadModal');
+            const countdownEl = document.getElementById('adCountdown');
+            const timerText = document.getElementById('adTimerText');
+            const closeBtn = document.getElementById('adCloseBtn');
+
+            if (!modal) {
+                processData();
+                return;
+            }
+
+            modal.classList.remove('hidden');
+            timerText.classList.remove('hidden');
+            closeBtn.classList.add('hidden');
+
+            let timeLeft = 3;
+            countdownEl.innerText = timeLeft;
+
+            if (adTimerInterval) clearInterval(adTimerInterval);
+
+            adTimerInterval = setInterval(() => {
+                timeLeft--;
+                countdownEl.innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(adTimerInterval);
+                    timerText.classList.add('hidden');
+                    closeBtn.classList.remove('hidden');
+                }
+            }, 1000);
+        }
+
+        // Triggered after 3-second ad timer finishes and user clicks continue
+        function finishAdAndBuild() {
+            const modal = document.getElementById('adDownloadModal');
+            if (modal) modal.classList.add('hidden');
+            if (typeof processData === 'function') {
+                processData();
+            }
+        }
 
         let modalCallback = null;
 
