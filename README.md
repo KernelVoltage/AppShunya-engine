@@ -11,7 +11,7 @@
 1. The Manifesto: Tears Behind the IDE
 2. The Open-Source Challenge: High-Level Technical Roadblocks
 3. System Architecture & File Specification Map
-4. Exhaustive Interface Breakdown & Builder Workflow
+4. Exhaustive Interface Breakdown & Builder Workflow (Step-by-Step)
 5. Hardware Bridge Framework & Dynamic Permissions Matrix
 6. Client-Side Graphics Pipeline: 3D Gloss Icon Engine
 7. Binary Assembly Pipeline & Memory Management Architecture
