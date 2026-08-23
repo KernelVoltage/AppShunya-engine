@@ -255,7 +255,7 @@
             <input type="file" id="payloadFile" class="hidden" accept=".zip,.html" onchange="loadPayloadFile(event)">
             <input type="file" id="manualApkInput" class="hidden" accept=".apk">
 
-            <!-- Action Button (Triggers 3-Sec Ad Overlay before Compilation) -->
+            <!-- Action Button (Triggers 5-Sec Ad Overlay before Compilation) -->
             <button id="buildBtn" onclick="triggerAdBeforeBuild()" class="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-extrabold py-4 sm:py-5 rounded-2xl shadow-xl shadow-emerald-500/25 active:scale-[0.99] transition cursor-pointer text-sm sm:text-base tracking-widest uppercase">
                 Generate Unsigned APK
             </button>
@@ -264,8 +264,29 @@
             <div id="consoleTerminal" class="hidden"></div>
         </div>
     </main>
+
+    <!-- Bottom-Right Floating Ad Widget -->
+    <div id="appshunya-ad-widget" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99999; background: #ffffff; border: 1px solid #e2e8f0; padding: 12px 16px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 330px; text-align: center;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 11px; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Sponsored</span>
+            <button onclick="closeAppShunyaAd()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: #64748b; line-height: 1; padding: 0 4px;">&times;</button>
+        </div>
+
+        <div id="adsterra-banner-wrapper" style="min-height: 250px; min-width: 300px; display: flex; justify-content: center; align-items: center;">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'dc866146cacb9210bf7d397f4aa65095',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="https://www.highrevenueformat.com/dc866146cacb9210bf7d397f4aa65095/invoke.js"></script>
+        </div>
+    </div>
     
-    <!-- Download / Compilation Ad Overlay Modal (3-Sec Delay) -->
+    <!-- Download / Compilation Ad Overlay Modal (5-Sec Delay) -->
     <div id="adDownloadModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-[100] flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-100 space-y-4 text-center relative">
             <div class="space-y-1">
@@ -292,10 +313,10 @@
             <div class="pt-2">
                 <div id="adTimerText" class="text-xs sm:text-sm font-bold text-slate-600 flex items-center justify-center gap-2">
                     <svg class="w-4 h-4 animate-spin text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                    <span>Please wait <span id="adCountdown" class="text-emerald-600 font-black text-base">3</span>s...</span>
+                    <span>Please wait <span id="adCountdown" class="text-emerald-600 font-black text-base">5</span>s...</span>
                 </div>
 
-                <!-- Close / Continue Button (Reveals ONLY after 3 seconds) -->
+                <!-- Close / Continue Button (Reveals ONLY after 5 seconds) -->
                 <button id="adCloseBtn" onclick="finishAdAndBuild()" class="hidden w-full mt-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-black py-3.5 rounded-xl transition shadow-lg shadow-emerald-500/25 text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer">
                     <span>Continue & Build APK</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -405,8 +426,8 @@
             }
         }
 
-        // Sync dual target URL inputs
-        document.addEventListener('DOMContentLoaded', () => {
+        // Floating Ad Widget logic (Re-appears 6 seconds after close)
+        window.addEventListener('DOMContentLoaded', () => {
             setMode('file');
             const targetUrl = document.getElementById('targetUrl');
             const targetUrlInput = document.getElementById('targetUrlInput');
@@ -415,11 +436,34 @@
                     targetUrlInput.value = e.target.value;
                 });
             }
+
+            // Show floating ad after 3 seconds initially
+            setTimeout(() => {
+                showAppShunyaAd();
+            }, 3000);
         });
+
+        function showAppShunyaAd() {
+            const adWidget = document.getElementById('appshunya-ad-widget');
+            if (adWidget) {
+                adWidget.style.display = 'block';
+            }
+        }
+
+        function closeAppShunyaAd() {
+            const adWidget = document.getElementById('appshunya-ad-widget');
+            if (adWidget) {
+                adWidget.style.display = 'none';
+            }
+            // Close karne ke 6 second (6000ms) baad wapas show karega
+            setTimeout(() => {
+                showAppShunyaAd();
+            }, 6000);
+        }
 
         let adTimerInterval = null;
 
-        // Triggers ad modal with strict 3-second countdown before APK compilation
+        // Triggers ad modal with strict 5-second countdown before APK compilation
         function triggerAdBeforeBuild() {
             const modal = document.getElementById('adDownloadModal');
             const countdownEl = document.getElementById('adCountdown');
@@ -427,7 +471,7 @@
             const closeBtn = document.getElementById('adCloseBtn');
 
             if (!modal) {
-                processData();
+                if (typeof processData === 'function') processData();
                 return;
             }
 
@@ -435,7 +479,7 @@
             timerText.classList.remove('hidden');
             closeBtn.classList.add('hidden');
 
-            let timeLeft = 3;
+            let timeLeft = 5; // Updated to 5 seconds
             countdownEl.innerText = timeLeft;
 
             if (adTimerInterval) clearInterval(adTimerInterval);
@@ -451,7 +495,7 @@
             }, 1000);
         }
 
-        // Triggered after 3-second ad timer finishes and user clicks continue
+        // Triggered after 5-second ad timer finishes and user clicks continue
         function finishAdAndBuild() {
             const modal = document.getElementById('adDownloadModal');
             if (modal) modal.classList.add('hidden');
@@ -466,6 +510,7 @@
             const titleEl = document.getElementById('modalTitle');
             if (titleEl && title) {
                 titleEl.innerText = title;
+                titleEl.classList.remove('hidden');
             }
             const msgEl = document.getElementById('modalMessage');
             if (msgEl) msgEl.innerHTML = messageHtml; 
@@ -478,27 +523,36 @@
         window.closeCustomModal = function() {
             const modal = document.getElementById('customModal');
             if (modal) modal.classList.add('hidden');
-            if (modalCallback) {
+            if (typeof modalCallback === 'function') {
                 modalCallback();
                 modalCallback = null;
-            } else {
-                window.location.href = 'index.html#signing-guide';
             }
         };
 
-        window.triggerSigningRedirect = function() {
-            setTimeout(() => {
-                window.location.href = 'index.html#signing-guide';
-            }, 500);
-        };
-    </script>
+        function previewIcon(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('iconPreview');
+                    const container = document.getElementById('iconContainer');
+                    const placeholder = document.getElementById('iconPlaceholder');
+                    if (preview && container && placeholder) {
+                        preview.src = e.target.result;
+                        container.classList.remove('hidden');
+                        placeholder.classList.add('hidden');
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
 
-    <!-- Main Logic Scripts -->
-    <script src="main.js"></script>
-    <script src="security-seo.js"></script>
-    <script>
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
+        function loadPayloadFile(event) {
+            const file = event.target.files[0];
+            const label = document.getElementById('payloadLabel');
+            if (file && label) {
+                label.innerHTML = `Selected File: <span class="text-emerald-600 font-bold">${file.name}</span>`;
+            }
         }
     </script>
 </body>
