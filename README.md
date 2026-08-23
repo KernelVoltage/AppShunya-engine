@@ -3,43 +3,53 @@
 [![Live Web App](https://img.shields.io/badge/Live_App-app--shunya--engine.vercel.app-blue?style=for-the-badge&logo=vercel)](https://app-shunya-engine.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-> **"No heavy computers needed. Build Android apps straight inside your web browser!"[cite: 1]**
+> **"No heavy computers needed. Build Android apps straight inside your web browser!"**
 
 ---
 
-## 📖 About
-**AppShunya Engine** lets you turn websites or web pages into Android app files (`.apk`) right inside your browser[cite: 1]. You don't need heavy software like Android Studio[cite: 1]. It works on any phone or laptop[cite: 1]!
+## 📖 About the Project
+**AppShunya Engine** is a powerful zero-server web tool that allows developers to turn websites, web pages, and web asset bundles into clean Android application structures (`.apk`) entirely inside the client-side browser sandbox. 
+
+Traditional native Android compilation requires heavy software like Android Studio, powerful multi-core processors, and massive storage space. AppShunya Engine bypasses these hardware limitations, letting anyone on budget laptops or mobile devices package web assets effortlessly.
 
 ---
 
-## 🛠️ We Need Your Help!
-We are stuck on two low-level technical challenges and need expert developers:
-1. **Browser-Based V2/V3 APK Signing:** Help us write JS/WASM code to sign apps directly in the browser[cite: 1].
-2. **Dynamic Package Names:** Help us change package IDs dynamically using JavaScript[cite: 1].
+## 🛠️ The Open-Source Challenge (Help Needed!)
+While the engine successfully bundles web payloads and assets into unsigned APK layouts in browser memory, we are currently tackling two major low-level architecture hurdles. We invite expert developers and open-source contributors to help us solve:
+
+1. **Browser-Based V2/V3 APK Signing:** Developing a pure JavaScript or WebAssembly crypto module to inject Android V2/V3 signature blocks into the ZIP Central Directory and perform in-browser alignment.
+2. **Dynamic Package Name Mutation:** Building a client-side Android Binary XML (AXML) parser to dynamically modify package identifiers (e.g., `com.user.app`) inside JSZip streams before sealing the binary.
 
 ---
 
-## 🚀 How to Use It
-1. **App Name:** Type your app's name for the phone screen[cite: 1].
-2. **App Icon:** Drop a square image (`.png`/`.jpg`) for your icon[cite: 1].
-3. **Permissions:** Select required options like Camera or Storage[cite: 1].
-4. **Source:** Enter a website URL or upload your website files (`.zip`/`.html`)[cite: 1].
-5. **Build:** Click **GENERATE UNSIGNED APK** to download your app[cite: 1]!
+## 🚀 Step-by-Step User Workflow
+1. **App Name:** Enter your application title to define the home screen launcher label.
+2. **App Icon:** Upload a square image (`.png`, `.jpg`). The canvas resizes it to 512x512 with adaptive squircle clipping and a 3D gloss overlay (`ic_launcher.png`).
+3. **Permissions:** Toggle required system permissions such as Camera, Microphone, Location, Storage, or Vibration to inject declarations into `AndroidManifest.xml`.
+4. **Source Payload:** Choose between a remote web URL (for hosted PWAs) or upload a local `.zip` / `.html` asset bundle.
+5. **Compile Binary:** Click the **GENERATE UNSIGNED APK** button to bundle everything in browser memory and trigger instant download.
 
 ---
 
-## 📦 How to Sign & Install Your App
-1. Download a free app called **APK Signer** from the Play Store[cite: 1].
-2. Open it, select **Sign a File**, and choose your downloaded unsigned APK[cite: 1].
-3. Choose **Testkey** and tap **Sign the File**[cite: 1].
-4. Open your phone's File Manager, tap the signed APK, allow unknown sources, and **Install**[cite: 1]!
+## 📦 On-Device APK Signing & Installation Guide
+Because Android requires all application binaries to carry a valid cryptographic signature before installation, follow these simple steps on your phone:
+
+1. Download a free utility app called **APK Signer** from the Google Play Store or F-Droid.
+2. Open the app and select **Sign a File**.
+3. Choose your downloaded unsigned APK file from your device storage.
+4. Select the **Testkey** profile for quick local deployment and tap **Sign the File**.
+5. Open your phone's File Manager, tap the newly generated signed APK, allow installation from unknown sources if prompted, and tap **Install**!
 
 ---
 
-## 🌐 More Projects
-* **GitHub Profile:** [KernelVoltage Overview](https://github.com/KernelVoltage)[cite: 1]
-* **Web Apps:** [Web Projects Repository](https://github.com/KernelVoltage/web-projects)[cite: 1]
+## 🌐 KernelVoltage Ecosystem
+Explore other open-source tools and repositories across our ecosystem:
+
+* **Central GitHub Profile:** [KernelVoltage Overview](https://github.com/KernelVoltage)
+* **Web Projects Directory:** [Web Projects Repository](https://github.com/KernelVoltage/web-projects)
+* **Game Projects Hub:** [Game Projects Repository](https://github.com/KernelVoltage/game-projects)
 
 ---
+
 ## 📄 License
-MIT License[cite: 1].
+Distributed under the terms of the **MIT License**. See the `LICENSE` file for details.
