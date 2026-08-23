@@ -1,40 +1,34 @@
-# AppShunya Engine — Client-Side Android Binary Compiler & Web Asset Packager
+# AppShunya Engine — Make Android Apps Directly Inside Your Web Browser!
 
 [![Live Web App](https://img.shields.io/badge/Live_App-app--shunya--engine.vercel.app-blue?style=for-the-badge&logo=vercel)](https://app-shunya-engine.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/Platform-WebBrowser-orange?style=for-the-badge)]()
 
-> **"Eradicating hardware inequality. Bypassing heavy IDEs. Compiling standalone native Android binaries purely within the client-side web browser sandbox."**
-
----
-
-## 📖 Overview
-
-**AppShunya Engine** (*Shunya* = Zero Disadvantage) is a zero-server, client-side web application designed to package web assets, single-page applications (SPAs), and PWAs into clean Android APK structures. 
-
-Official native compilation pipelines require heavy IDEs like Android Studio, 16GB+ RAM, and powerful CPUs—leaving millions of developers on budget hardware locked out of native engineering. AppShunya Engine executes asset pre-processing, package bundling, hardware permission mapping, icon rasterization, and ZIP binary assembly **100% inside the browser**, transforming any device into a lightweight Android packaging studio.
+> **"No heavy computers needed. Build and package your own Android apps straight inside your web browser!"**
 
 ---
 
-## 🛠️ The Open-Source Challenge (Help Needed!)
+##  What is this?
 
-While AppShunya Engine successfully packages web assets into unsigned APK structures on the client side, we are currently stuck on two low-level technical walls. 
+**AppShunya Engine** is a free, web-based tool that lets you turn websites or web pages into Android app files (`.apk`) right inside your browser. 
 
-We invite senior system architects, cryptographic engineers, and low-level developers to help us solve these core puzzles:
+Usually, to build Android apps, you need expensive computers and heavy software like Android Studio. But AppShunya Engine does all the hard work right inside your browser tab. Whether you are using a cheap phone or an old laptop, you can build your own apps for free!
+
+---
+
+##  We Need Your Help! (Open-Source Challenge)
+
+Right now, our tool can successfully bundle web pages into an unsigned app file. But we are stuck on two big challenges and need help from expert programmers:
 
 ```text
 +-----------------------------------------------------------------------------------+
-|                        THE OPEN-SOURCE ENGINEERING PUZZLES                        |
+|                            WE NEED YOUR HELP WITH:                                |
 +-----------------------------------------------------------------------------------+
-| 1. Pure Browser-Based V2/V3 APK Signing & Zipalign                               |
-|    - Current State: Generates unsigned APK structures via JSZip in-browser.       |
-|    - Target: Build a pure JS or WebAssembly (WASM) crypto module to inject         |
-|      Android V2/V3 signature blocks into the ZIP Central Directory and perform    |
-|      4-byte zipalign entirely in-browser.                                         |
+| 1. Signing Apps Inside the Browser (V2/V3)                                       |
+|    - Current: It creates an unsigned app file using JSZip.              |
+|    - Goal: Help us write a script to sign the app security block directly         |
+|      inside the browser.                                                          |
 |                                                                                   |
-| 2. Dynamic Package Name Replacement via Binary XML Parsing                        |
-|    - Current State: Package identifiers use fixed static binary templates.        |
-|    - Target: Develop a client-side AXML (Android Binary XML) string-pool parser   |
-|      and writer to dynamically mutate package IDs (e.g., com.user.app) inside     |
-|      JSZip before sealing the binary blob.                                        |
+| 2. Changing Package Names Dynamically                                            |
+|    - Current: App package names are fixed.                              |
+|    - Goal: Help us change package IDs (like com.my.app) on the fly using JS.     |
 +-----------------------------------------------------------------------------------+
