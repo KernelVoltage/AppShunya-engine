@@ -61,3 +61,49 @@ We challenge senior system architects, cryptographic engineers, and low-level de
 |      and writer to dynamically mutate package IDs (e.g., com.user.app) inside     |
 |      JSZip before sealing the binary blob.                                        |
 +-----------------------------------------------------------------------------------+
+
+# AppShunya Engine — Step-by-Step UI Execution & Compilation Guide
+
+AppShunya Engine operates completely within the client-side browser engine using a zero-server architecture. Every step of the asset packaging and compilation workflow runs locally in browser memory.
+
+---
+
+### 1. Setting the Application Identity (Homescreen Title)
+* **User Action:** Enter the app's display title in the `App Name (Homescreen Title)` input field (e.g., `MyAwesomeApp`).
+* **Engine Logic:** The engine sanitizes the input string against XML special characters and injects it into the internal binary resource table to define the app title on the Android home screen launcher.
+
+---
+
+### 2. Icon Ingestion & 3D Gloss Canvas Processing
+* **User Action:** Drag and drop a square image (`.png`, `.jpg`, `.webp`) into the `App Icon` dropzone or click **Browse** to select a file manually.
+* **Engine Logic:** The HTML5 Canvas API resizes the graphic to 512x512 pixels, applies an adaptive Android squircle clipping path, and overlays a 3D specular gloss highlight layer to output an optimized `ic_launcher.png` asset.
+
+---
+
+### 3. Configuring Native Hardware Permissions
+* **User Action:** Toggle the hardware permission switches (**Camera**, **Microphone**, **Location**, **Storage**, and **Haptic Vibration**) based on your application's requirements.
+* **Engine Logic:** Active switches dynamically inject corresponding system permission declarations (such as `android.permission.CAMERA` or `android.permission.VIBRATE`) directly into the `AndroidManifest.xml` manifest buffer.
+
+---
+
+### 4. Selecting the Source Payload Mode
+* **User Action:** Choose either the **Remote URL** tab (for live PWAs or hosted web applications) or the **Local File** tab (for offline web bundles).
+* **Engine Logic:** The engine configures the underlying Android WebView launcher intent to route to either an external HTTPS endpoint or an internal local asset path.
+
+---
+
+### 5. Web Package Asset Ingestion
+* **User Action:** Under the `Local File` tab, drop a static site package (`.zip` containing `index.html`, CSS, JS, media) or a single standalone `.html` file into the upload dropzone.
+* **Engine Logic:** The browser uses JSZip memory streams to extract the web bundle and write all static assets into the APK's internal `assets/www/` directory structure.
+
+---
+
+### 6. Real-Time Form State Validation
+* **User Action:** Verify that the dynamic status bar displays the green readiness indicator (`✓ Fill all mandatory fields to compile Unsigned APK...`).
+* **Engine Logic:** Real-time DOM event listeners continuously monitor required form inputs (App Name, Icon Blob, and Source Payload), activating the primary build trigger as soon as all fields pass validation.
+
+---
+
+### 7. Unsigned Binary Compilation & Download
+* **User Action:** Click the bright green **GENERATE UNSIGNED APK** button.
+* **Engine Logic:** The engine compresses the manifest files, rasterized icons, web assets, and binary structures into an unsigned `.apk` Blob in browser RAM, triggering an instant file download via `window.URL.createObjectURL`.
